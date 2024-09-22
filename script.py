@@ -22,7 +22,6 @@ player_hand = [deck.pop(), deck.pop()]
 
 dealer_hand = [deck.pop(), deck.pop()]
 
-
 while True:
     player_score = sum(card_value(card) for card in player_hand)
     dealer_score = sum(card_value(card) for card in dealer_hand)
@@ -39,11 +38,11 @@ while True:
         print("invalid choice")
         continue
 
-    if player_score > 21:
+    if player_score >= 22:
         print("Player cards are:", player_hand)
         print("Player score: ", player_score)
-        print("Player cards are:", player_hand)
-        print("Player score: ", player_score)
+        print("Dealer cards are:", dealer_hand)
+        print("Dealer score: ", dealer_score)
         print("Dealer wins")
         break
 
@@ -51,10 +50,11 @@ while dealer_score < 17:
     new_card = deck.pop()
     dealer_hand.append(new_card)
     dealer_score += card_value(new_card)
-    print("Cards Dealer Has:", dealer_hand)
-    print("Score Of The Dealer:", dealer_score)
-    print("\n")
     
+print("Cards Dealer Has:", dealer_hand)
+print("Score Of The Dealer:", dealer_score)
+print("\n")
+        
 if dealer_score > 21:
     print("Player cards are:", player_hand)
     print("Player score: ", player_score)
